@@ -123,6 +123,248 @@
           }
         }
       }
+    },
+    "child-app1": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/child-app1",
+      "sourceRoot": "projects/child-app1/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/child-app1",
+            "index": "projects/child-app1/src/index.html",
+            "main": "projects/child-app1/src/main.ts",
+            "polyfills": "projects/child-app1/src/polyfills.ts",
+            "tsConfig": "projects/child-app1/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/child-app1/src/favicon.ico",
+              "projects/child-app1/src/assets"
+            ],
+            "styles": [
+              "projects/child-app1/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/child-app1/src/environments/environment.ts",
+                  "with": "projects/child-app1/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "child-app1:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "child-app1:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "child-app1:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/child-app1/src/test.ts",
+            "polyfills": "projects/child-app1/src/polyfills.ts",
+            "tsConfig": "projects/child-app1/tsconfig.spec.json",
+            "karmaConfig": "projects/child-app1/karma.conf.js",
+            "assets": [
+              "projects/child-app1/src/favicon.ico",
+              "projects/child-app1/src/assets"
+            ],
+            "styles": [
+              "projects/child-app1/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/child-app1/tsconfig.app.json",
+              "projects/child-app1/tsconfig.spec.json",
+              "projects/child-app1/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/child-app1/e2e/protractor.conf.js",
+            "devServerTarget": "child-app1:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "child-app1:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "child-app2": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/child-app2",
+      "sourceRoot": "projects/child-app2/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/child-app2",
+            "index": "projects/child-app2/src/index.html",
+            "main": "projects/child-app2/src/main.ts",
+            "polyfills": "projects/child-app2/src/polyfills.ts",
+            "tsConfig": "projects/child-app2/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/child-app2/src/favicon.ico",
+              "projects/child-app2/src/assets"
+            ],
+            "styles": [
+              "projects/child-app2/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/child-app2/src/environments/environment.ts",
+                  "with": "projects/child-app2/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "child-app2:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "child-app2:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "child-app2:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/child-app2/src/test.ts",
+            "polyfills": "projects/child-app2/src/polyfills.ts",
+            "tsConfig": "projects/child-app2/tsconfig.spec.json",
+            "karmaConfig": "projects/child-app2/karma.conf.js",
+            "assets": [
+              "projects/child-app2/src/favicon.ico",
+              "projects/child-app2/src/assets"
+            ],
+            "styles": [
+              "projects/child-app2/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/child-app2/tsconfig.app.json",
+              "projects/child-app2/tsconfig.spec.json",
+              "projects/child-app2/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/child-app2/e2e/protractor.conf.js",
+            "devServerTarget": "child-app2:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "child-app2:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "parent-app"
 }
